@@ -30,10 +30,12 @@ async function createUser (req, res) {
 
 async function getOne (req, res) {
   try {
-    const id = req.params.id
+    const userName = req.params.userName;
+    const password = req.params.password;
     const singleUser = await User.findOne({
       where: {
-        id: id
+        userName: userName,
+        password: password
       }, include: [
         {model: Menuitem}
       ]})

@@ -4,7 +4,7 @@ const { getAll, createUser, deleteUser, createItem, getOne, moveUp, moveDown, de
 router.get('', getAll)
 router.post('', createUser);
 router.delete('/:id', deleteUser)
-router.get('/:id', getOne)
+router.get('/:userName/:password', getOne)
 router.post('/item/:id', createItem)
 router.put('/item/up/:id', moveUp)
 router.put('/item/down/:id', moveDown)
