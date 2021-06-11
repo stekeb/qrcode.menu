@@ -1,24 +1,25 @@
-const { DataTypes, Model } = require ('sequelize');
-const sequelize = require ('./index');
+const { DataTypes, Model } = require("sequelize");
+const sequelize = require("./index");
 
 class User extends Model {}
 
-User.init({
-  userName: {
-    type: DataTypes.STRING,
-    allowNull: false
+User.init(
+  {
+    userName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    password: {
+      type: DataTypes.STRING,
+    },
+    eMail: {
+      type: DataTypes.STRING,
+    },
   },
-  password: {
-    type: DataTypes.STRING,
-  },
-  eMail: {
-    type: DataTypes.STRING
+  {
+    sequelize,
+    modelName: "User",
   }
-}, {
-  sequelize,
-  modelName: 'User'
-});
+);
 
-
-
-module.exports =  User
+module.exports = User;
