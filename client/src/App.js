@@ -13,6 +13,8 @@ import {
   moveItemDown,
 } from "./API_services/API_Database";
 
+import { getTranslation } from "./API_services/DeepL_API";
+
 function App() {
   const [userData, setUserData] = useState("");
   const [menuData, setMenuData] = useState("");
@@ -32,6 +34,14 @@ function App() {
     setMenuData(userDataInput.Menuitems);
   }
 
+  let de = "";
+
+  async function apiTest(en) {
+    const testAPI = await getTranslation(en);
+    de = testAPI.translations[0].text;
+    console.log(testAPI.translations[0].text);
+  }
+
   async function createItemHandler(
     toBeTranslated,
     className,
@@ -44,7 +54,8 @@ function App() {
     menuNumber,
     UserId
   ) {
-    console.log(UserId);
+    console.log(en);
+    apiTest(en);
     const newItem = await createItem(
       toBeTranslated,
       className,

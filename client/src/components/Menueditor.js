@@ -12,9 +12,9 @@ function Menueditor({
   const [toBeTranslated, setToBeTranslated] = useState(true);
   const [className, setClassName] = useState("");
   const [en, setEn] = useState("");
-  const [price, setPrice] = useState();
+  const [price, setPrice] = useState(0);
   const [menuNumber, setMenuNumber] = useState("");
-  const { de, fr, es, it } = "";
+  const { fr, es, it, de } = "";
   const userID = userId;
 
   let menuItemsList;
@@ -36,7 +36,6 @@ function Menueditor({
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    console.log(userId);
     await createItemHandler(
       toBeTranslated,
       className,
