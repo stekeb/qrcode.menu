@@ -4,3 +4,34 @@
   align-items: baseline;
   background-color: lightcyan;
 }
+
+.menulist {
+  display: flex;
+  margin: 5px;
+}
+
+.menuitem {
+  margin: 5px;
+}
+
+.menueditor {
+  background-color: lightgrey;
+}
+
+.menuitemlist {
+  background-color: lightgreen;
+}
+
+.editorbar {
+  background-color: lightsalmon;
+}
+
+.movercontainer {
+  background-color: lightyellow;
+  display: flex;
+  flex-direction: column;
+}
+
+.delete {
+  background-color: lightyellow;
+}

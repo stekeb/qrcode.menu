@@ -4,8 +4,14 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Menueditor from "./Menueditor";
 import Qrcodeeditor from "./Qrcodeeditor";
 
-function Home({ userData }) {
-  console.log(userData);
+function Home({
+  menuData,
+  createItemHandler,
+  userId,
+  deleteHandler,
+  moveUpHandler,
+  moveDownHandler,
+}) {
   return (
     <Router>
       This is the home screen
@@ -21,7 +27,14 @@ function Home({ userData }) {
       </div>
       <Switch>
         <Route path="/menueditor">
-          <Menueditor userData={userData} />
+          <Menueditor
+            menuData={menuData}
+            userId={userId}
+            createItemHandler={createItemHandler}
+            deleteHandler={deleteHandler}
+            moveUpHandler={moveUpHandler}
+            moveDownHandler={moveDownHandler}
+          />
         </Route>
         <Route path="/qrcodeeditor">
           <Qrcodeeditor />

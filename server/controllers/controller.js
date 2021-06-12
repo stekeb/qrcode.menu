@@ -18,8 +18,15 @@ async function createUser(req, res) {
   try {
     const { userName, password, eMail } = req.body;
     const newUser = await User.create({ userName, password, eMail });
+    const singleUser = await User.findOne({
+      where: {
+        userName: userName,
+        password: password,
+      },
+      include: [{ model: Menuitem }],
+    });
     res.status(201);
-    res.json(newUser);
+    res.json(singleUser);
   } catch (error) {
     res.status(500);
     console.log(error);
@@ -65,7 +72,7 @@ async function deleteUser(req, res) {
 
 async function createItem(req, res) {
   try {
-    const UserId = req.params.id;
+    const { UserId } = req.params;
     const singleUser = await User.findOne({
       where: {
         id: UserId,
@@ -83,7 +90,7 @@ async function createItem(req, res) {
       sortNo = 0;
     } else {
       for (let i = 0; i < singleUser.Menuitems.length; i++) {
-        if (singleUser.Menuitems[i].sortNo > oldSortNo) {
+        if (Number(singleUser.Menuitems[i].sortNo) > oldSortNo) {
           oldSortNo = singleUser.Menuitems[i].sortNo;
         }
       }
@@ -121,7 +128,7 @@ async function deleteItem(req, res) {
     });
 
     await itemToBeDeleted.destroy();
-    res.json(`Item with ${id} has been deleted`);
+    res.json(id);
     res.status(201);
   } catch (error) {
     res.status(500);
@@ -166,8 +173,15 @@ async function moveUp(req, res) {
     itemToBeMovedUp.sortNo = sortNoMoveDown;
     await itemToBeMovedUp.save();
 
+    const singleUser = await User.findOne({
+      where: {
+        id: userId,
+      },
+      include: [{ model: Menuitem }],
+    });
+
     res.status(201);
-    res.json(itemToBeMovedUp);
+    res.json(singleUser);
   } catch (error) {
     res.status(500);
     console.log(error);
@@ -177,6 +191,7 @@ async function moveUp(req, res) {
 async function moveDown(req, res) {
   try {
     const id = req.params.id;
+    console.log(id);
     const itemToBeMovedDown = await Menuitem.findOne({
       where: {
         id: id,
@@ -211,8 +226,15 @@ async function moveDown(req, res) {
     itemToBeMovedDown.sortNo = sortNoMoveUp;
     await itemToBeMovedDown.save();
 
+    const singleUser = await User.findOne({
+      where: {
+        id: userId,
+      },
+      include: [{ model: Menuitem }],
+    });
+
     res.status(201);
-    res.json(itemToBeMovedDown);
+    res.json(singleUser);
   } catch (error) {
     res.status(500);
     console.log(error);
