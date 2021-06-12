@@ -2,10 +2,9 @@ require("dotenv").config();
 const DEEPL_URL = process.env.REACT_APP_DEEPL_URL;
 const DEEPL_KEY = process.env.REACT_APP_DEEPL_KEY;
 
-export async function getTranslation(en) {
-  // return await fetch(`${DEEPL_URL}${DEEPL_KEY}&text=I am going home&target_lang=DE&source_lang=EN`, {
+export async function getTranslation(en, targetLang) {
   return await fetch(
-    `${DEEPL_URL}${DEEPL_KEY}&text=${en}&target_lang=DE&source_lang=EN`,
+    `${DEEPL_URL}${DEEPL_KEY}&text=${en}&target_lang=${targetLang}&source_lang=EN`,
     {
       method: "POST",
       mode: "cors", // no-cors, *cors, same-origin

@@ -1,5 +1,6 @@
 import { React, useState } from "react";
 import Menulist from "./Menulist";
+import { getTranslation } from "../API_services/DeepL_API";
 
 function Menueditor({
   menuData,
@@ -12,10 +13,14 @@ function Menueditor({
   const [toBeTranslated, setToBeTranslated] = useState(true);
   const [className, setClassName] = useState("");
   const [en, setEn] = useState("");
-  const [price, setPrice] = useState(0);
+  const [price, setPrice] = useState();
   const [menuNumber, setMenuNumber] = useState("");
-  const { fr, es, it, de } = "";
+  //const [de, setDe] = useState("")
+  const { fr, es, it } = "";
   const userID = userId;
+
+  const languageArr = ["DE", "FR", "ES", "IT"];
+  const translationObj = {};
 
   let menuItemsList;
 
@@ -36,14 +41,20 @@ function Menueditor({
 
   const submitHandler = async (e) => {
     e.preventDefault();
+
+    for (let i = 0; i < languageArr.length; i++) {
+      const testAPI = await getTranslation(en, languageArr[i]);
+      let languageKey = languageArr[i].toLowerCase();
+      translationObj[languageKey] = testAPI.translations[0].text;
+    }
     await createItemHandler(
       toBeTranslated,
       className,
       en,
-      de,
-      fr,
-      es,
-      it,
+      translationObj.de,
+      translationObj.fr,
+      translationObj.es,
+      translationObj.it,
       price,
       menuNumber,
       userID
