@@ -79,30 +79,32 @@ function App() {
   }
 
   return (
-    <Router>
-      <Switch>
-        <Route exact path="/">
-          <Login loginHandler={loginHandler} />
-        </Route>
-        <Route path="/register">
-          <Register registerHandler={registerHandler} />
-        </Route>
-        <Route path="/home">
-          <Home
-            menuData={menuData}
-            userId={userData.id}
-            createItemHandler={createItemHandler}
-            moveDownHandler={moveDownHandler}
-            moveUpHandler={moveUpHandler}
-            deleteHandler={deleteHandler}
-          />
-          {/* <Home userIdState={userIdState} createItemHandler={createItemHandler}/> */}
-        </Route>
-        <Route path="/menu/:userName">
-          <MobileMenu />
-        </Route>
-      </Switch>
-    </Router>
+    <div>
+      <Router>
+        <Switch>
+          <Route exact path="/">
+            <Login loginHandler={loginHandler} />
+          </Route>
+          <Route path="/register">
+            <Register registerHandler={registerHandler} />
+          </Route>
+          <Route path="/home">
+            <Home
+              menuData={menuData}
+              userId={userData.id}
+              createItemHandler={createItemHandler}
+              moveDownHandler={moveDownHandler}
+              moveUpHandler={moveUpHandler}
+              deleteHandler={deleteHandler}
+            />
+            {/* <Home userIdState={userIdState} createItemHandler={createItemHandler}/> */}
+          </Route>
+          <Route path="/menu/:userName">
+            <MobileMenu />
+          </Route>
+        </Switch>
+      </Router>
+    </div>
   );
 }
 

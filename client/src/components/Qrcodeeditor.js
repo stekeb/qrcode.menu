@@ -58,8 +58,6 @@ function Qrcodeeditor(props) {
 
   return (
     <div>
-      <div>This is the Qrcodeeditor</div>
-
       <img src={qrCodeReturn} className="qrcode" alt="logo" />
       <form className="menuitemform" onSubmit={QRCodeHandler}>
         <button className="formbutton" type="submmit">

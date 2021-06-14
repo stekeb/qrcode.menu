@@ -62,9 +62,10 @@ function Menueditor({
   };
 
   return (
-    <div className="menueditor">
-      <div>This is the Menueditor</div>
-      <div className="menuitemlist">{menuItemsList}</div>
+    <div>
+      <div className="menueditor">
+        <div className="menuitemlist">{menuItemsList}</div>
+      </div>
       <div className="editorbar">
         This is the editorbar
         <div>
@@ -92,15 +93,15 @@ function Menueditor({
               type="text"
               placeholder="Price"
             />
-            <label htmlFor="classname">Choose a Style:</label>
+            <label htmlFor="classnamedropdown">Choose a Style:</label>
 
             <select
               value={className}
               onChange={(e) => {
                 setClassName(e.target.value);
               }}
-              name="classname"
-              id="classname"
+              className="classnamedropdown"
+              id="classnamedropdown"
             >
               <option value="ItemName">Item Name</option>
               <option value="Description">Description</option>

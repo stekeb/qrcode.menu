@@ -12,8 +12,10 @@ function Menulist({ item, deleteHandler, moveDownHandler, moveUpHandler }) {
         </button>
       </div>
 
-      <div className={item.className}>{item.en}</div>
-      <div className={item.className}>{item.price}</div>
+      <div className="menuitemcontainer">
+        <div className={item.className}>{item.en}</div>
+        <div className="price">{item.price}</div>
+      </div>
       <button className="delete" onClick={() => deleteHandler(item.id)}>
         &#128465;
       </button>

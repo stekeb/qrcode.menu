@@ -1,8 +1,54 @@
+body {
+  background-color: #dff3f7;
+}
 .navbar {
   display: flex;
   justify-content: space-around;
   align-items: baseline;
-  background-color: lightcyan;
+  background-color: #d3ecf2;
+  width: 800px;
+  border-width: 20px;
+  padding: 10px;
+  margin-left: 50px;
+  margin-bottom: 25px;
+  border-radius: 3px;
+  box-shadow: 6px 6px #cedbde;
+}
+
+.editorbar {
+  background-color: #d3ecf2;
+  width: 800px;
+  border-width: 20px;
+  padding: 10px;
+  margin-left: 50px;
+  margin-bottom: 25px;
+  border-radius: 3px;
+  box-shadow: 6px 6px #cedbde;
+}
+
+.menueditor {
+  background-color: #d3ecf2;
+  width: 800px;
+  border-width: 20px;
+  padding: 10px;
+  margin-left: 50px;
+  margin-bottom: 25px;
+  border-radius: 3px;
+  box-shadow: 6px 6px #cedbde;
+}
+
+.mover {
+  background-color: #cedbde;
+  border-style: solid;
+  border-width: 3px;
+  border-color: black;
+  margin: 2px;
+  border-radius: 5px;
+}
+
+.classnamedropdown {
+  margin: 5px;
+  margin-left: px;
 }
 
 .menulist {
@@ -10,60 +56,109 @@
   margin: 5px;
 }
 
+.menufield {
+  margin: 5px;
+}
 .menuitem {
   margin: 5px;
 }
 
-.menueditor {
-  background-color: lightgrey;
-}
-
-.menuitemlist {
-  background-color: lightgreen;
-}
-
-.editorbar {
-  background-color: lightsalmon;
-}
-
 .movercontainer {
-  background-color: lightyellow;
   display: flex;
   flex-direction: column;
 }
 
 .delete {
-  background-color: lightyellow;
+  width: 35px;
+  margin: 3px;
+  background-color: #cedbde;
+  border-style: solid;
+  border-width: 3px;
+  border-color: black;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.menuitemcontainer {
+  display: flex;
+}
+
+.price {
+  color: black;
+  width: 30px;
+  background-color: #cedbde;
+  border-style: solid;
+  border-width: 3px;
+  border-color: black;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
 }
 
 .Description {
   color: blue;
+  width: 400px;
+  background-color: #cedbde;
+  border-style: solid;
+  border-width: 3px;
+  border-color: black;
+  border-radius: 5px;
+  padding: 5px;
   margin: 5px;
 }
 
 .Category {
-  color: white;
   margin: 5px;
+  color: white;
+  width: 400px;
+  background-color: #cedbde;
+  border-style: solid;
+  border-width: 3px;
+  border-color: black;
+  border-radius: 5px;
+  padding: 5px;
 }
 
 .HeadLineSmall {
-  color: red;
   margin: 5px;
+  color: red;
+  width: 400px;
+  background-color: #cedbde;
+  border-style: solid;
+  border-width: 3px;
+  border-color: black;
+  border-radius: 5px;
+  padding: 5px;
 }
 
 .HeadLineBig {
-  color: yellow;
   margin: 5px;
+  color: yellow;
+  width: 400px;
+  background-color: #cedbde;
+  border-style: solid;
+  border-width: 3px;
+  border-color: black;
+  border-radius: 5px;
+  padding: 5px;
 }
 
 .ItemName {
-  color: gray;
   margin: 5px;
+  color: gray;
+  width: 400px;
+  background-color: #cedbde;
+  border-style: solid;
+  border-width: 3px;
+  border-color: black;
+  border-radius: 5px;
+  padding: 5px;
 }
 
 .qrcode {
-  height: 350px;
-  width: 350px;
+  margin: 50px;
+  height: 300px;
+  width: 300px;
 }
 
 .languageselector {
@@ -75,4 +170,57 @@
 
 .formbutton {
   cursor: pointer;
+}
+
+.loginregisterform {
+  display: flex;
+  flex-direction: column;
+}
+.loginregistercontainer {
+  background-color: #d3ecf2;
+  width: 350px;
+  border-width: 20px;
+  padding: 10px;
+  margin-left: 200px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  border-radius: 3px;
+  box-shadow: 6px 6px #404242;
+}
+
+.App-logo {
+  margin-top: 25px;
+  margin-left: 235px;
+  width: 25%;
+  height: 25%;
+}
+.formfield {
+  width: 250px;
+  margin: 5px;
+}
+
+.formbutton {
+  width: 70px;
+  margin: 5px;
+  margin-top: 15px;
+}
+
+.formheader {
+  margin: 5px;
+}
+
+.formtext {
+  margin: 5px;
+}
+
+.appframe {
+  width: 950px;
+  padding-bottom: 50px;
+  padding-top: 25px;
+  border-style: solid;
+  border-color: #404242;
+  margin-left: 200px;
+  margin-top: 20px;
+  border-width: 7px;
+  border-radius: 3px;
 }
