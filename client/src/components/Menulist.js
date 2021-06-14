@@ -1,23 +1,29 @@
-import React from "react";
+import { React } from "react";
 
-function Menulist({ item, deleteHandler, moveDownHandler, moveUpHandler }) {
+function Menulist({
+  item,
+  deleteHandler,
+  moveDownHandler,
+  moveUpHandler,
+  menuNoAdder,
+}) {
   return (
     <div className="menulist">
       <div className="movercontainer">
         <button className="mover" onClick={() => moveUpHandler(item.id)}>
-          u
+          &#8593;
         </button>
         <button className="mover" onClick={() => moveDownHandler(item.id)}>
-          d
+          &#8595;
         </button>
       </div>
-      <div className="menuitem">{item.menuNumber}</div>
-      <div className="menuitem">{item.sortNo}</div>
-      <div className="menuitem">{item.className}</div>
-      <div className="menuitem">{item.en}</div>
-      <div className="menuitem">{item.price}</div>
+      {/* <div className={item.className}>{item.className ? "ItemName" : menuNoAdder()}</div> */}
+      <div className={item.className}>{item.sortNo}</div>
+      <div className={item.className}>{item.className}</div>
+      <div className={item.className}>{item.en}</div>
+      <div className={item.className}>{item.price}</div>
       <button className="delete" onClick={() => deleteHandler(item.id)}>
-        d
+        &#128465;
       </button>
     </div>
   );

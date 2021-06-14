@@ -11,16 +11,22 @@ function Menueditor({
   moveDownHandler,
 }) {
   const [toBeTranslated, setToBeTranslated] = useState(true);
-  const [className, setClassName] = useState("");
+  const [className, setClassName] = useState("ItemName");
   const [en, setEn] = useState("");
   const [price, setPrice] = useState();
   const [menuNumber, setMenuNumber] = useState("");
-  //const [de, setDe] = useState("")
-  const { fr, es, it } = "";
   const userID = userId;
+  // let menuNo = 0;
 
   const languageArr = ["DE", "FR", "ES", "IT"];
-  const translationObj = {};
+  const translationObj = {}; // this object will be filled by the for loop in the submit handler. after it is done, the translations in the object will be send to the DB, together with the user input from the form
+
+  //this sorts the array according to a sortNo, which is automatically generated in the backend and ajusted, when entries are moved up and down in the list. the sorting is from small to high.
+
+  // function menuNoAdder () {
+  //   menuNo++
+  //   console.log(menuNo)
+  // }
 
   let menuItemsList;
 
@@ -35,6 +41,7 @@ function Menueditor({
         deleteHandler={deleteHandler}
         moveUpHandler={moveUpHandler}
         moveDownHandler={moveDownHandler}
+        // menuNoAdder={menuNoAdder}
       />
     ));
   }
@@ -43,9 +50,9 @@ function Menueditor({
     e.preventDefault();
 
     for (let i = 0; i < languageArr.length; i++) {
-      const testAPI = await getTranslation(en, languageArr[i]);
-      let languageKey = languageArr[i].toLowerCase();
-      translationObj[languageKey] = testAPI.translations[0].text;
+      const translation = await getTranslation(en, languageArr[i]);
+      let languageKey = languageArr[i].toLowerCase(); // this is necessary, as the API needs the languages in capital letters (like in the array), but the DB fields are in lower letters.
+      translationObj[languageKey] = translation.translations[0].text; //adds a key value pair to the translationObj with which the createItemHandler is then called.
     }
     await createItemHandler(
       toBeTranslated,
@@ -105,7 +112,7 @@ function Menueditor({
               }}
               value={price}
               type="text"
-              placeholder="Preis"
+              placeholder="Price"
             />
             <label htmlFor="classname">Choose a Style:</label>
 

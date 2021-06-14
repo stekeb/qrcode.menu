@@ -35,3 +35,28 @@
 .delete {
   background-color: lightyellow;
 }
+
+.Description {
+  color: blue;
+  margin: 5px;
+}
+
+.Category {
+  color: white;
+  margin: 5px;
+}
+
+.HeadLineSmall {
+  color: red;
+  margin: 5px;
+}
+
+.HeadLineBig {
+  color: yellow;
+  margin: 5px;
+}
+
+.ItemName {
+  color: gray;
+  margin: 5px;
+}
