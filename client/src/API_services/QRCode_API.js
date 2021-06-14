@@ -1,9 +1,46 @@
+require("dotenv").config();
 const QRCODE_URL = process.env.REACT_APP_QRCODE_URL;
 const QRCODE_KEY = process.env.REACT_APP_QRCODE_KEY;
 
-export function getQrCodeGet() {
+export function getQrCodeGet(
+  foregroundColor,
+  backgroundColor,
+  markerLeftInnerColor,
+  markerLeftOuterColor,
+  markerRightInnerColor,
+  markerRightOuterColor,
+  markerBottomInnerColor,
+  markerBottomOuterColor,
+  markerLeftTemplate,
+  markerRightTemplate,
+  markerBottomTemplate,
+  frameColor,
+  frameText,
+  frameTextColor,
+  frameName
+) {
   return fetch(
-    `${QRCODE_URL}${QRCODE_KEY}&foreground_color=%23000000&qr_code_text=http://www.qr-code-generator.com`
+    `${QRCODE_URL}${QRCODE_KEY}&foreground_color=${
+      "%23" + foregroundColor.substring(1)
+    }&background_color=${
+      "%23" + backgroundColor.substring(1)
+    }&marker_left_inner_color=${
+      "%23" + markerLeftInnerColor.substring(1)
+    }&marker_left_outer_color=${
+      "%23" + markerLeftOuterColor.substring(1)
+    }&marker_right_inner_color=${
+      "%23" + markerRightInnerColor.substring(1)
+    }&marker_right_outer_color=${
+      "%23" + markerRightOuterColor.substring(1)
+    }&marker_bottom_inner_color=${
+      "%23" + markerBottomInnerColor.substring(1)
+    }&marker_bottom_outer_color=${
+      "%23" + markerBottomOuterColor.substring(1)
+    }&marker_left_template=${markerLeftTemplate}&marker_right_template=${markerRightTemplate}&marker_bottom_template=${markerBottomTemplate}&frame_color=${
+      "%23" + frameColor.substring(1)
+    }&frame_text=${frameText}&frame_text_color=${
+      "%23" + frameTextColor.substring(1)
+    }&frame_name=${frameName}&download=1&qr_code_text=http://www.qr-code-generator.com`
   )
     .then((response) => response.body)
     .then((rb) => {
@@ -14,14 +51,12 @@ export function getQrCodeGet() {
           function push() {
             reader.read().then(({ done, value }) => {
               if (done) {
-                // console.log('done', done);
                 controller.close();
                 return;
               }
 
               controller.enqueue(value);
 
-              // console.log(done, value);
               push();
             });
           }
@@ -35,37 +70,4 @@ export function getQrCodeGet() {
         headers: { "Content-Type": "text/html" },
       }).text();
     });
-}
-
-export async function getQrCodePost() {
-  return await fetch(`${QRCODE_URL}${QRCODE_KEY}`, {
-    method: "POST",
-    // mode: "cors", // no-cors, *cors, same-origin
-    // cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-    // credentials: "omit", // include, *same-origin, omit
-    // headers: {
-    //   "Content-Type": "application/json",
-    //   // 'Content-Type': 'application/x-www-form-urlencoded',
-    body: JSON.stringify({
-      frame_name: "bottom-frame",
-      qr_code_text: "https://www.qr-code-generator.com/",
-      image_format: "JPG",
-      frame_color: "#ffffff",
-      frame_text_color: "#ffffff",
-      frame_icon_name: "mobile",
-      frame_text: "Scan me",
-      marker_left_template: "",
-      marker_right_template: "version4",
-      marker_bottom_template: "version4",
-      download: 1,
-    }),
-  })
-    .then((response) => {
-      console.log(response);
-      return response;
-    })
-    // .then((svg) => {
-    //   console.log(svg);
-    // })
-    .catch((error) => console.log(error));
 }

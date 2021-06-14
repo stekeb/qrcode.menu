@@ -12,6 +12,7 @@ import {
   moveItemUp,
   moveItemDown,
 } from "./API_services/API_Database";
+import MobileMenu from "./containers/MobileMenu";
 
 function App() {
   const [userData, setUserData] = useState("");
@@ -96,6 +97,9 @@ function App() {
             deleteHandler={deleteHandler}
           />
           {/* <Home userIdState={userIdState} createItemHandler={createItemHandler}/> */}
+        </Route>
+        <Route path="/menu/:userName">
+          <MobileMenu />
         </Route>
       </Switch>
     </Router>

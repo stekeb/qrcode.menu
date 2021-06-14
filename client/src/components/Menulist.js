@@ -1,12 +1,6 @@
 import { React } from "react";
 
-function Menulist({
-  item,
-  deleteHandler,
-  moveDownHandler,
-  moveUpHandler,
-  menuNoAdder,
-}) {
+function Menulist({ item, deleteHandler, moveDownHandler, moveUpHandler }) {
   return (
     <div className="menulist">
       <div className="movercontainer">
@@ -17,9 +11,7 @@ function Menulist({
           &#8595;
         </button>
       </div>
-      {/* <div className={item.className}>{item.className ? "ItemName" : menuNoAdder()}</div> */}
-      <div className={item.className}>{item.sortNo}</div>
-      <div className={item.className}>{item.className}</div>
+
       <div className={item.className}>{item.en}</div>
       <div className={item.className}>{item.price}</div>
       <button className="delete" onClick={() => deleteHandler(item.id)}>

@@ -11,7 +11,13 @@ export const createUser = (userName, password, eMail) => {
 };
 
 export const findUser = (userName, password) => {
-  return fetch("http://localhost:3001/" + userName + "/" + password)
+  return fetch("http://localhost:3001/login/" + userName + "/" + password)
+    .then((data) => data.json())
+    .then((userData) => userData);
+};
+
+export const findUserMobile = (userName) => {
+  return fetch("http://localhost:3001/menu/1")
     .then((data) => data.json())
     .then((userData) => userData);
 };

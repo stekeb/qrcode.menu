@@ -14,19 +14,13 @@ function Menueditor({
   const [className, setClassName] = useState("ItemName");
   const [en, setEn] = useState("");
   const [price, setPrice] = useState();
-  const [menuNumber, setMenuNumber] = useState("");
+  const [menuNumber, setMenuNumber] = useState(0);
   const userID = userId;
-  // let menuNo = 0;
 
   const languageArr = ["DE", "FR", "ES", "IT"];
   const translationObj = {}; // this object will be filled by the for loop in the submit handler. after it is done, the translations in the object will be send to the DB, together with the user input from the form
 
   //this sorts the array according to a sortNo, which is automatically generated in the backend and ajusted, when entries are moved up and down in the list. the sorting is from small to high.
-
-  // function menuNoAdder () {
-  //   menuNo++
-  //   console.log(menuNo)
-  // }
 
   let menuItemsList;
 
@@ -41,7 +35,6 @@ function Menueditor({
         deleteHandler={deleteHandler}
         moveUpHandler={moveUpHandler}
         moveDownHandler={moveDownHandler}
-        // menuNoAdder={menuNoAdder}
       />
     ));
   }
@@ -76,21 +69,6 @@ function Menueditor({
         This is the editorbar
         <div>
           <form className="menuitemform" onSubmit={submitHandler}>
-            <label
-              htmlFor="menunumberfield"
-              className="menufieldheader"
-            ></label>
-            <input
-              className="menufield"
-              id="menunumberfield"
-              onChange={(e) => {
-                setMenuNumber(e.target.value);
-              }}
-              value={menuNumber}
-              type="text"
-              placeholder="Menu number"
-            />
-
             <label htmlFor="menuitemname" className="menufieldheader"></label>
             <input
               className="menufield"

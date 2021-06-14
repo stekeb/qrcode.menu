@@ -22,7 +22,7 @@ function Home({
         <Link to="/qrcodeeditor">
           <div>QR-Code Editor</div>
         </Link>
-        <div>Menu Preview</div>
+
         <div>Logout</div>
       </div>
       <Switch>

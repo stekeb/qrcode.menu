@@ -60,3 +60,19 @@
   color: gray;
   margin: 5px;
 }
+
+.qrcode {
+  height: 350px;
+  width: 350px;
+}
+
+.languageselector {
+  display: flex;
+  margin: 5px;
+  justify-content: space-around;
+  align-items: baseline;
+}
+
+.formbutton {
+  cursor: pointer;
+}

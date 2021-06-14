@@ -52,6 +52,23 @@ async function getOne(req, res) {
   }
 }
 
+async function getOneMobile(req, res) {
+  try {
+    const userName = req.params.userName;
+    const singleUser = await User.findOne({
+      where: {
+        userName: userName,
+      },
+      include: [{ model: Menuitem }],
+    });
+    res.status(201);
+    res.json(singleUser);
+  } catch (error) {
+    res.status(500);
+    console.log(error);
+  }
+}
+
 async function deleteUser(req, res) {
   try {
     const id = req.params.id;
@@ -250,4 +267,5 @@ module.exports = {
   moveUp,
   moveDown,
   deleteItem,
+  getOneMobile,
 };
