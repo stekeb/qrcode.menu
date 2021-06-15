@@ -14,11 +14,12 @@ function Register({ registerHandler }) {
     setUserName("");
     setPassword("");
     setEMail("");
+
     history.push("/home");
   };
 
   return (
-    <div className="appframe">
+    <div>
       <img src={logo} className="App-logo" alt="logo" />
       <div className="loginregistercontainer">
         <form className="loginregisterform" onSubmit={submitHandler}>

@@ -1,6 +1,7 @@
 require("dotenv").config();
 const QRCODE_URL = process.env.REACT_APP_QRCODE_URL;
 const QRCODE_KEY = process.env.REACT_APP_QRCODE_KEY;
+const MENU_URL = process.env.REACT_APP_MENU_URL;
 
 export function getQrCodeGet(
   foregroundColor,
@@ -17,7 +18,8 @@ export function getQrCodeGet(
   frameColor,
   frameText,
   frameTextColor,
-  frameName
+  frameName,
+  userNameVar
 ) {
   return fetch(
     `${QRCODE_URL}${QRCODE_KEY}&foreground_color=${
@@ -40,7 +42,7 @@ export function getQrCodeGet(
       "%23" + frameColor.substring(1)
     }&frame_text=${frameText}&frame_text_color=${
       "%23" + frameTextColor.substring(1)
-    }&frame_name=${frameName}&download=1&qr_code_text=http://www.qr-code-generator.com`
+    }&frame_name=${frameName}&download=1&qr_code_text=${MENU_URL}menu/${userNameVar}`
   )
     .then((response) => response.body)
     .then((rb) => {

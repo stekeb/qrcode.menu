@@ -17,7 +17,7 @@ export const findUser = (userName, password) => {
 };
 
 export const findUserMobile = (userName) => {
-  return fetch("http://localhost:3001/menu/1")
+  return fetch("http://localhost:3001/menu/" + userName)
     .then((data) => data.json())
     .then((userData) => userData);
 };

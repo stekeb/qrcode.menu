@@ -55,8 +55,10 @@ function MobileMenu(props) {
           <button onClick={() => languageChanger("fr")}>FR</button>
         </div>
       </div>
-      This is the mobile view for {userName}
-      {mobilMenuItemsList}
+      <div>This is the mobile view for {userName} addition</div>
+      <div>{mobilMenuItemsList}</div>
+
+      <div>ENDE</div>
     </div>
   );
 }

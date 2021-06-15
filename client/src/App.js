@@ -1,9 +1,12 @@
 import { React, useState } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Link, Route } from "react-router-dom";
 import "./App.css";
 import Register from "./components/Register";
 import Login from "./components/Login";
 import Home from "./components/Home";
+import Qrcodeeditor from "./components/Qrcodeeditor";
+import Menueditor from "./components/Menueditor";
+import MobileMenu from "./containers/MobileMenu";
 import {
   createUser,
   findUser,
@@ -12,19 +15,20 @@ import {
   moveItemUp,
   moveItemDown,
 } from "./API_services/API_Database";
-import MobileMenu from "./containers/MobileMenu";
 
 function App() {
   const [userData, setUserData] = useState("");
   const [menuData, setMenuData] = useState("");
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  // const [userIdState, setUserIdState] = useState("")
+  // const userId=1
 
   async function registerHandler(userName, password, email) {
     const userDataInput = await createUser(userName, password, email);
     //setUserIdState(userDataInput.id)
     setUserData(userDataInput);
     setMenuData(userDataInput.Menuitems);
+    setIsAuthenticated(true);
   }
 
   async function loginHandler(userName, password) {
@@ -32,6 +36,7 @@ function App() {
     // setUserIdState(userDataInput.id)
     setUserData(userDataInput);
     setMenuData(userDataInput.Menuitems);
+    setIsAuthenticated(true);
   }
 
   // is handed down to Menueditor.js to create an entry and store it in the database. before sending the data from the form to the DB a for loop sends the entry to the DeepL API and stores the return values in an object, with which the non-english parameters are filled
@@ -77,35 +82,103 @@ function App() {
     const newUserData = await moveItemDown(id);
     setMenuData(newUserData.Menuitems);
   }
-
-  return (
-    <div>
-      <Router>
-        <Switch>
-          <Route exact path="/">
-            <Login loginHandler={loginHandler} />
-          </Route>
-          <Route path="/register">
-            <Register registerHandler={registerHandler} />
-          </Route>
-          <Route path="/home">
-            <Home
-              menuData={menuData}
-              userId={userData.id}
-              createItemHandler={createItemHandler}
-              moveDownHandler={moveDownHandler}
-              moveUpHandler={moveUpHandler}
-              deleteHandler={deleteHandler}
-            />
-            {/* <Home userIdState={userIdState} createItemHandler={createItemHandler}/> */}
-          </Route>
-          <Route path="/menu/:userName">
-            <MobileMenu />
-          </Route>
-        </Switch>
-      </Router>
-    </div>
-  );
+  if (isAuthenticated) {
+    return (
+      <div>
+        <div>AUTH</div>
+        <div className="appframe">
+          <Router>
+            <div className="navbar">
+              <Link to="/menueditor">
+                <div className="navelement">Menu Editor</div>
+              </Link>
+              <Link to="/qrcodeeditor">
+                <div className="navelement">QR-Code Editor</div>
+              </Link>
+              <Link to="/">
+                <div className="navelement">Logout</div>
+              </Link>
+            </div>
+            <Switch>
+              <Route exact path="/">
+                <Login loginHandler={loginHandler} />
+              </Route>
+              <Route path="/register">
+                <Register registerHandler={registerHandler} />
+              </Route>
+              <Route path="/home">
+                <Home />
+              </Route>
+              <Route path="/menu/:userName">
+                <MobileMenu />
+              </Route>
+              <Route path="/menueditor">
+                <Menueditor
+                  menuData={menuData}
+                  userId={userData.id}
+                  createItemHandler={createItemHandler}
+                  deleteHandler={deleteHandler}
+                  moveUpHandler={moveUpHandler}
+                  moveDownHandler={moveDownHandler}
+                />
+              </Route>
+              <Route path="/qrcodeeditor">
+                <Qrcodeeditor userName={userData.userName} />
+              </Route>
+            </Switch>
+          </Router>
+        </div>
+      </div>
+    );
+  } else {
+    return (
+      <div>
+        <div>notAUTH</div>
+        <div className="appframe">
+          <Router>
+            {/* <div className="navbar">
+            <Link to="/menueditor">
+              <div className="navelement">Menu Editor</div>
+            </Link>
+            <Link to="/qrcodeeditor">
+              <div className="navelement">QR-Code Editor</div>
+            </Link>
+            <Link to="/">
+              <div className="navelement">Logout</div>
+            </Link>
+          </div> */}
+            <Switch>
+              <Route exact path="/">
+                <Login loginHandler={loginHandler} />
+              </Route>
+              <Route path="/register">
+                <Register registerHandler={registerHandler} />
+              </Route>
+              <Route path="/home">
+                <Home />
+              </Route>
+              <Route path="/menu/:userName">
+                <MobileMenu />
+              </Route>
+              <Route path="/menueditor">
+                <Menueditor
+                  menuData={menuData}
+                  userId={userData.id}
+                  createItemHandler={createItemHandler}
+                  deleteHandler={deleteHandler}
+                  moveUpHandler={moveUpHandler}
+                  moveDownHandler={moveDownHandler}
+                />
+              </Route>
+              <Route path="/qrcodeeditor">
+                <Qrcodeeditor />
+              </Route>
+            </Switch>
+          </Router>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default App;

@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import logo from "../qrcode_logo.png";
 
@@ -7,21 +7,26 @@ function Login({ loginHandler }) {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
 
+  useEffect(() => {});
+
   const submitHandler = async (e) => {
     e.preventDefault();
     await loginHandler(userName, password);
 
     setUserName("");
     setPassword("");
-
     history.push("/home");
   };
 
   return (
-    <div className="appframe">
+    <div>
       <img src={logo} className="App-logo" alt="logo" />
       <div className="loginregistercontainer">
-        <form className="loginregisterform" onSubmit={submitHandler}>
+        <form
+          className="loginregisterform"
+          onSubmit={submitHandler}
+          onTouchStart={submitHandler}
+        >
           <label htmlFor="usernamelogin" className="formheader">
             Username:{" "}
           </label>

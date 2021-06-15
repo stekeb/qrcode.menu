@@ -2,7 +2,8 @@ import { React, useState } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { getQrCodeGet } from "../API_services/QRCode_API";
 
-function Qrcodeeditor(props) {
+function Qrcodeeditor({ userName }) {
+  const [userNameVar] = useState(userName);
   const [qrCodeReturn, setQrCodeReturn] = useState("empty");
   const [foregroundColor, setForegroundColor] = useState("#000000");
   const [backgroundColor, setBackgroundColor] = useState("#FFFFFF");
@@ -39,7 +40,8 @@ function Qrcodeeditor(props) {
       frameColor,
       frameText,
       frameTextColor,
-      frameName
+      frameName,
+      userNameVar
     );
 
     let svg = QRCode.toString();
