@@ -15,6 +15,49 @@ body {
   box-shadow: 6px 6px #cedbde;
 }
 
+.menuitemform {
+  display: flex;
+  justify-content: space-around;
+  align-items: baseline;
+  background-color: #d3ecf2;
+  width: 800px;
+  border-width: 20px;
+  padding: 10px;
+  margin-left: 50px;
+  margin-bottom: 25px;
+  border-radius: 3px;
+  box-shadow: 6px 6px #cedbde;
+}
+
+.qrcodesettingsblock {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: baseline;
+  background-color: #d3ecf2;
+
+  padding: 10px;
+  margin-left: 50px;
+  margin-bottom: 25px;
+}
+
+.qrcodedisplaycontainer {
+  display: flex;
+  height: 350px;
+  width: 300px;
+  margin-left: 50px;
+  background-color: white;
+  margin-bottom: 25px;
+  align-items: center;
+  justify-content: center;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 2px;
+}
+
+.home {
+  margin-left: 50px;
+}
 .editorbar {
   background-color: #d3ecf2;
   width: 800px;
@@ -69,6 +112,7 @@ body {
 }
 
 .delete {
+  height: 50px;
   width: 35px;
   margin: 3px;
   background-color: #cedbde;
@@ -84,81 +128,137 @@ body {
 }
 
 .price {
-  color: black;
-  width: 30px;
-  background-color: #cedbde;
-  border-style: solid;
-  border-width: 3px;
-  border-color: black;
-  border-radius: 5px;
+  width: 60px;
   padding: 5px;
   margin: 5px;
+  margin-top: 10px;
+
+  color: black;
+  background-color: #f5fafc;
+  border-style: solid;
+  border-width: 2px;
+  border-left-width: 4px;
+  border-right-width: 4px;
+  border-color: black;
+  border-radius: 2px;
+  text-align: center;
 }
 
 .Description {
-  color: blue;
   width: 400px;
-  background-color: #cedbde;
-  border-style: solid;
-  border-width: 3px;
-  border-color: black;
-  border-radius: 5px;
+
   padding: 5px;
   margin: 5px;
+
+  display: flex;
+  color: gray;
+  align-items: center;
+  justify-content: center;
+  background-color: #bfc9a8;
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+  border-radius: 2px;
+  font-style: oblique;
+  margin-top: 2px;
 }
 
 .Category {
   margin: 5px;
-  color: white;
   width: 400px;
+  padding: 5px;
+  display: flex;
+  color: white;
+  align-items: center;
+  justify-content: center;
   background-color: #cedbde;
   border-style: solid;
   border-width: 3px;
   border-color: black;
   border-radius: 5px;
   padding: 5px;
+  text-align: center;
+  font-size: large;
+  margin-bottom: 10px;
 }
 
 .HeadLineSmall {
   margin: 5px;
-  color: red;
   width: 400px;
-  background-color: #cedbde;
-  border-style: solid;
-  border-width: 3px;
-  border-color: black;
-  border-radius: 5px;
   padding: 5px;
+  display: flex;
+
+  color: rgb(14, 11, 11);
+  align-items: center;
+  justify-content: center;
+  background-color: #f7f8f8;
+  border-style: solid;
+  border-width: 1px;
+  border-top-width: 5px;
+  border-color: black;
+  border-radius: 2px;
+  text-align: center;
+  margin-bottom: 17px;
+  margin-top: 12px;
 }
 
 .HeadLineBig {
   margin: 5px;
-  color: yellow;
+
   width: 400px;
-  background-color: #cedbde;
-  border-style: solid;
-  border-width: 3px;
-  border-color: black;
-  border-radius: 5px;
   padding: 5px;
+
+  color: black;
+  font-weight: bold;
+  align-items: center;
+  justify-content: center;
+  font-size: larger;
+  display: flex;
+  background-color: #e4ebec;
+  border-style: solid;
+  border-width: 1px;
+
+  border-color: black;
+  border-radius: 2px;
+
+  margin-bottom: 20px;
 }
 
 .ItemName {
+  display: flex;
   margin: 5px;
-  color: gray;
   width: 400px;
-  background-color: #cedbde;
-  border-style: solid;
-  border-width: 3px;
-  border-color: black;
-  border-radius: 5px;
   padding: 5px;
+  color: gray;
+  background-color:lightsteelblue;
+  border-style: solid;
+  border-width: 2px;
+  border-left-width: 4px;
+  border-right-width: 4px;
+  border-color: black;
+  border-radius: 2px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  color: black;
+  margin-bottom: 8px;
 }
 
 .qrcode {
-  margin: 50px;
-  height: 300px;
-  width: 300px;
+  height: 200px;
+  width: 200px;
+  margin-bottom: 35px;
+}
+
+.qrcodeplaceholder {
+  height: 200px;
+  width: 200px;
+  border-style: solid;
+  border-width: 7px;
+  border-color: black;
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px;
 }
 
 .languageselector {
@@ -223,4 +323,96 @@ body {
   margin-top: 20px;
   border-width: 7px;
   border-radius: 3px;
+}
+
+@media only screen and (min-device-width: 350px) and (max-device-width: 450px) {
+  body {
+    background-color: #fdfcfa;
+  }
+  .appframe {
+    border-style: none;
+    width: 100vw;
+    margin-left: 0px;
+    padding-top: 10px;
+    margin-top: 0px;
+  }
+
+  .languageselector {
+    width: 97vw;
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: #fdfcfa;
+    border-radius: 2px;
+  }
+  .languagebutton {
+    background-color: lightgrey;
+    width: 16vw;
+    height: 7vw;
+    border-radius: 2px;
+    text-align: center;
+  }
+
+  .mobilemenulist {
+    display: flex;
+  }
+  .mobilemenulistitem {
+    display: flex;
+  }
+
+  .price {
+    width: 12vw;
+
+    padding: 5px;
+    margin: 5px;
+
+    margin-top: 10px;
+  }
+
+  .menunumber {
+    color: black;
+    width: 8vw;
+    background-color: #f5fafc;
+    border-style: solid;
+    border-width: 2px;
+    border-left-width: 4px;
+    border-right-width: 4px;
+
+    border-color: black;
+    border-radius: 2px;
+    padding: 5px;
+    margin: 5px;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .Description {
+    width: 60vw;
+    padding: 5px;
+    margin-left: 16vw;
+  }
+
+  .Category {
+    width: 80vw;
+    margin-left: 8vw;
+    padding: 5px;
+    margin-bottom: 10px;
+  }
+
+  .HeadLineSmall {
+    width: 90vw;
+    margin-left: 3vw;
+
+    padding: 5px;
+  }
+
+  .HeadLineBig {
+    width: 97vw;
+  }
+
+  .ItemName {
+    width: 60vw;
+  }
 }

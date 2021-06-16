@@ -47,7 +47,7 @@ function Register({ registerHandler }) {
               setPassword(e.target.value);
             }}
             value={password}
-            type="text"
+            type="password"
             placeholder="Insert your password"
           />
 

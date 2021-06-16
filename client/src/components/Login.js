@@ -45,13 +45,15 @@ function Login({ loginHandler }) {
             Password:{" "}
           </label>
           <input
+          
+          
             className="formfield"
             id="passwordlogin"
             onChange={(e) => {
               setPassword(e.target.value);
             }}
             value={password}
-            type="text"
+            type="password"
             placeholder="Insert your password"
           />
 

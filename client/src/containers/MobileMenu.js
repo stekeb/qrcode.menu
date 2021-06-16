@@ -39,26 +39,28 @@ function MobileMenu(props) {
   return (
     <div>
       <div className="languageselector">
-        <div className="langbuttoncontainer">
-          <button onClick={() => languageChanger("en")}>EN</button>
+        <div className="languagebutton" onClick={() => languageChanger("en")}>
+          EN
         </div>
-        <div className="langbuttoncontainer">
-          <button onClick={() => languageChanger("de")}>DE</button>
+
+        <div className="languagebutton" onClick={() => languageChanger("de")}>
+          DE
         </div>
-        <div className="langbuttoncontainer">
-          <button onClick={() => languageChanger("es")}>ES</button>
+
+        <div className="languagebutton" onClick={() => languageChanger("es")}>
+          ES
         </div>
-        <div className="langbuttoncontainer">
-          <button onClick={() => languageChanger("it")}>IT</button>
+
+        <div className="languagebutton" onClick={() => languageChanger("it")}>
+          IT
         </div>
-        <div className="langbuttoncontainer">
-          <button onClick={() => languageChanger("fr")}>FR</button>
+
+        <div className="languagebutton" onClick={() => languageChanger("fr")}>
+          FR
         </div>
       </div>
-      <div>This is the mobile view for {userName} addition</div>
-      <div>{mobilMenuItemsList}</div>
 
-      <div>ENDE</div>
+      <div>{mobilMenuItemsList}</div>
     </div>
   );
 }

@@ -13,7 +13,7 @@ function Menueditor({
   const [toBeTranslated, setToBeTranslated] = useState(true);
   const [className, setClassName] = useState("ItemName");
   const [en, setEn] = useState("");
-  const [price, setPrice] = useState();
+  const [price, setPrice] = useState("");
   const [menuNumber, setMenuNumber] = useState(0);
   const userID = userId;
 
@@ -59,6 +59,9 @@ function Menueditor({
       menuNumber,
       userID
     );
+
+    setEn("");
+    setPrice("");
   };
 
   return (
@@ -66,55 +69,62 @@ function Menueditor({
       <div className="menueditor">
         <div className="menuitemlist">{menuItemsList}</div>
       </div>
-      <div className="editorbar">
-        This is the editorbar
-        <div>
-          <form className="menuitemform" onSubmit={submitHandler}>
-            <label htmlFor="menuitemname" className="menufieldheader"></label>
-            <input
-              className="menufield"
-              id="menuitemname"
-              onChange={(e) => {
-                setEn(e.target.value);
-              }}
-              value={en}
-              type="text"
-              placeholder="Item Name"
-            />
 
-            <label htmlFor="menuprice" className="menufieldheader"></label>
-            <input
-              className="menufield"
-              id="menuprice"
-              onChange={(e) => {
-                setPrice(e.target.value);
-              }}
-              value={price}
-              type="text"
-              placeholder="Price"
-            />
-            <label htmlFor="classnamedropdown">Choose a Style:</label>
+      <div>
+        <form className="menuitemform" onSubmit={submitHandler}>
+          <label htmlFor="menuitemname" className="menufieldheader"></label>
+          <input
+            className="menufield"
+            id="menuitemname"
+            onChange={(e) => {
+              setEn(e.target.value);
+            }}
+            value={en}
+            type="text"
+            placeholder="Item Name"
+          />
+          {/* <div><input type="checkbox" id="scales" name="scales"
+         checked></input> 
+         
+         <label for="scales">To be translated</label></div> */}
+          
+          
+          {className === "ItemName" ? (
+            <div>
+              <label htmlFor="menuprice" className="menufieldheader"></label>
+              <input
+                className="menufield"
+                id="menuprice"
+                onChange={(e) => {
+                  setPrice(e.target.value);
+                }}
+                value={price}
+                type="text"
+                placeholder="Price"
+              />
+            </div>
+          ) : null}
+          <label htmlFor="classnamedropdown">Choose a Style:</label>
 
-            <select
-              value={className}
-              onChange={(e) => {
-                setClassName(e.target.value);
-              }}
-              className="classnamedropdown"
-              id="classnamedropdown"
-            >
-              <option value="ItemName">Item Name</option>
-              <option value="Description">Description</option>
-              <option value="Category">Category</option>
-              <option value="HeadLineSmall">Small Headline</option>
-              <option value="HeadLineBig">Big Headline</option>
-            </select>
+          <select
+            value={className}
+            onChange={(e) => {
+              setClassName(e.target.value);
+            }}
+            className="classnamedropdown"
+            id="classnamedropdown"
+          >
+            <option value="ItemName">Item Name</option>
+            <option value="Description">Description</option>
+            <option value="Category">Category</option>
+            <option value="HeadLineSmall">Small Headline</option>
+            <option value="HeadLineBig">Big Headline</option>
+          </select>
 
-            <button className="formbutton" type="submmit">
-              Save
-            </button>
-          </form>
-        </div>
+          <button className="formbutton" type="submmit">
+            Save
+          </button>
+        </form>
       </div>
     </div>
   );

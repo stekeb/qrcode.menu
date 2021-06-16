@@ -1,5 +1,5 @@
 export const createUser = (userName, password, eMail) => {
-  return fetch("http://localhost:3001", {
+  return fetch("http://192.168.178.100:3001", {
     method: "POST",
     body: JSON.stringify({ userName, password, eMail }),
     headers: {
@@ -11,13 +11,13 @@ export const createUser = (userName, password, eMail) => {
 };
 
 export const findUser = (userName, password) => {
-  return fetch("http://localhost:3001/login/" + userName + "/" + password)
+  return fetch("http://192.168.178.100:3001/login/" + userName + "/" + password)
     .then((data) => data.json())
     .then((userData) => userData);
 };
 
 export const findUserMobile = (userName) => {
-  return fetch("http://localhost:3001/menu/" + userName)
+  return fetch("http://192.168.178.100:3001/menu/" + userName)
     .then((data) => data.json())
     .then((userData) => userData);
 };
@@ -34,7 +34,7 @@ export const createItem = (
   menuNumber,
   UserId
 ) => {
-  return fetch("http://localhost:3001/item/" + UserId, {
+  return fetch("http://192.168.178.100:3001/item/" + UserId, {
     method: "POST",
     body: JSON.stringify({
       toBeTranslated,
@@ -56,7 +56,7 @@ export const createItem = (
 };
 
 export const deleteItem = (id) => {
-  return fetch("http://localhost:3001/item/delete/" + id, {
+  return fetch("http://192.168.178.100:3001/item/delete/" + id, {
     method: "DELETE",
   })
     .then((data) => data.json())
@@ -64,7 +64,7 @@ export const deleteItem = (id) => {
 };
 
 export const moveItemUp = (id) => {
-  return fetch("http://localhost:3001/item/up/" + id, {
+  return fetch("http://192.168.178.100:3001/item/up/" + id, {
     method: "PUT",
   })
     .then((data) => data.json())
@@ -72,7 +72,7 @@ export const moveItemUp = (id) => {
 };
 
 export const moveItemDown = (id) => {
-  return fetch("http://localhost:3001/item/down/" + id, {
+  return fetch("http://192.168.178.100:3001/item/down/" + id, {
     method: "PUT",
   })
     .then((data) => data.json())

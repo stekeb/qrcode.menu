@@ -3,6 +3,9 @@ import { React } from "react";
 function Menulist({ item, deleteHandler, moveDownHandler, moveUpHandler }) {
   return (
     <div className="menulist">
+      <button className="delete" onClick={() => deleteHandler(item.id)}>
+        &#128465;
+      </button>
       <div className="movercontainer">
         <button className="mover" onClick={() => moveUpHandler(item.id)}>
           &#8593;
@@ -14,11 +17,8 @@ function Menulist({ item, deleteHandler, moveDownHandler, moveUpHandler }) {
 
       <div className="menuitemcontainer">
         <div className={item.className}>{item.en}</div>
-        <div className="price">{item.price}</div>
+        {item.price ? <div className="price">{item.price}</div> : null}
       </div>
-      <button className="delete" onClick={() => deleteHandler(item.id)}>
-        &#128465;
-      </button>
     </div>
   );
 }

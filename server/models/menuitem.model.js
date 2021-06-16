@@ -47,7 +47,7 @@ Menuitem.init(
       defaultValue: null,
     },
     price: {
-      type: DataTypes.BIGINT,
+      type: DataTypes.STRING,
       allowNull: true,
       defaultValue: null,
     },
