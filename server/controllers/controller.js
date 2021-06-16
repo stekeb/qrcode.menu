@@ -1,19 +1,6 @@
 const User = require("../models/user.model");
 const Menuitem = require("../models/menuitem.model");
 
-async function getAll(req, res) {
-  try {
-    const users = await User.findAll({
-      include: [{ model: Menuitem }],
-    });
-    res.status(200);
-    res.json(users);
-  } catch (error) {
-    res.status(500);
-    console.log(error);
-  }
-}
-
 async function createUser(req, res) {
   try {
     const { userName, password, eMail } = req.body;
@@ -97,8 +84,7 @@ async function createItem(req, res) {
       include: [{ model: Menuitem }],
     });
 
-    const { toBeTranslated, className, en, de, fr, es, it, price, menuNumber } =
-      req.body;
+    const { toBeTranslated, className, en, de, fr, es, it, price } = req.body;
 
     let oldSortNo = 0;
     let sortNo;
@@ -124,7 +110,6 @@ async function createItem(req, res) {
       es,
       it,
       price,
-      menuNumber,
       sortNo,
     });
     res.status(201);
@@ -259,7 +244,6 @@ async function moveDown(req, res) {
 }
 
 module.exports = {
-  getAll,
   createUser,
   deleteUser,
   createItem,

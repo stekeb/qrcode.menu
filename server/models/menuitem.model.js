@@ -51,11 +51,6 @@ Menuitem.init(
       allowNull: true,
       defaultValue: null,
     },
-    menuNumber: {
-      type: DataTypes.STRING,
-      allowNull: true,
-      defaultValue: null,
-    },
   },
   {
     sequelize,

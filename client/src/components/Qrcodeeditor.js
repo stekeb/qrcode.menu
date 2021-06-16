@@ -1,5 +1,5 @@
 import { React, useState } from "react";
-import { renderToStaticMarkup } from "react-dom/server";
+
 import { getQrCodeGet } from "../API_services/QRCode_API";
 
 function Qrcodeeditor({ userName }) {
@@ -43,19 +43,6 @@ function Qrcodeeditor({ userName }) {
       frameName,
       userNameVar
     );
-
-    //   let svg = QRCode.toString();
-    //   let blob = new Blob([svg], { type: "image/svg+xml" });
-    //   let url = URL.createObjectURL(blob);
-    //   let image = document.createElement("img");
-
-    //   image.src = url;
-    //   image.addEventListener("load", () => URL.revokeObjectURL(url), {
-    //     once: true,
-    //   });
-    //   // const svgString = encodeURIComponent(renderToStaticMarkup(QRCode));
-    //   // const dataUri = `url("data:image/svg+xml,${svgString}")`;
-    //setQrCodeReturn(url);
 
     setQrCodeReturn(QRCode);
   }

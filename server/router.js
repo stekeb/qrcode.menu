@@ -1,6 +1,5 @@
 const router = require("express").Router();
 const {
-  getAll,
   createUser,
   deleteUser,
   createItem,
@@ -10,8 +9,6 @@ const {
   deleteItem,
   getOneMobile,
 } = require("./controllers/controller");
-
-router.get("", getAll);
 
 router.post("", createUser);
 

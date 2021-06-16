@@ -21,11 +21,9 @@ function App() {
   const [menuData, setMenuData] = useState("");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  // const userId=1
-
   async function registerHandler(userName, password, email) {
     const userDataInput = await createUser(userName, password, email);
-    //setUserIdState(userDataInput.id)
+
     setUserData(userDataInput);
     setMenuData(userDataInput.Menuitems);
     setIsAuthenticated(true);
@@ -33,7 +31,7 @@ function App() {
 
   async function loginHandler(userName, password) {
     const userDataInput = await findUser(userName, password);
-    // setUserIdState(userDataInput.id)
+
     setUserData(userDataInput);
     setMenuData(userDataInput.Menuitems);
     setIsAuthenticated(true);
@@ -49,7 +47,6 @@ function App() {
     es,
     it,
     price,
-    menuNumber,
     UserId
   ) {
     const newItem = await createItem(
@@ -61,7 +58,6 @@ function App() {
       es,
       it,
       price,
-      menuNumber,
       UserId
     );
     setMenuData((prevState) => [...prevState, newItem]);
@@ -85,7 +81,7 @@ function App() {
   function authHandler() {
     setIsAuthenticated(false);
   }
-  // if (isAuthenticated) {
+
   return (
     <div>
       <Router>
@@ -137,55 +133,6 @@ function App() {
       </Router>
     </div>
   );
-  // } else {
-  //   return (
-  //     <div>
-  //       <div>notAUTH</div>
-  //       <div className="appframe">
-  //         <Router>
-  //           <div className="navbar">
-  //           <Link to="/menueditor">
-  //             <div className="navelement">Menu Editor</div>
-  //           </Link>
-  //           <Link to="/qrcodeeditor">
-  //             <div className="navelement">QR-Code Editor</div>
-  //           </Link>
-  //           <Link to="/">
-  //             <div className="navelement">Logout</div>
-  //           </Link>
-  //         </div>
-  //           <Switch>
-  //             <Route exact path="/">
-  //               <Login loginHandler={loginHandler} />
-  //             </Route>
-  //             <Route path="/register">
-  //               <Register registerHandler={registerHandler} />
-  //             </Route>
-  //             <Route path="/home">
-  //               <Home />
-  //             </Route>
-  //             <Route path="/menu/:userName">
-  //               <MobileMenu />
-  //             </Route>
-  //             <Route path="/menueditor">
-  //               <Menueditor
-  //                 menuData={menuData}
-  //                 userId={userData.id}
-  //                 createItemHandler={createItemHandler}
-  //                 deleteHandler={deleteHandler}
-  //                 moveUpHandler={moveUpHandler}
-  //                 moveDownHandler={moveDownHandler}
-  //               />
-  //             </Route>
-  //             <Route path="/qrcodeeditor">
-  //               <Qrcodeeditor />
-  //             </Route>
-  //           </Switch>
-  //         </Router>
-  //       </div>
-  //     </div>
-  //   );
-  // }
 }
 
 export default App;

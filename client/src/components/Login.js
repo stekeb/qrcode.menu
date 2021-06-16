@@ -45,8 +45,6 @@ function Login({ loginHandler }) {
             Password:{" "}
           </label>
           <input
-          
-          
             className="formfield"
             id="passwordlogin"
             onChange={(e) => {

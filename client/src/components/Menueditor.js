@@ -14,7 +14,6 @@ function Menueditor({
   const [className, setClassName] = useState("ItemName");
   const [en, setEn] = useState("");
   const [price, setPrice] = useState("");
-  const [menuNumber, setMenuNumber] = useState(0);
   const userID = userId;
 
   const languageArr = ["DE", "FR", "ES", "IT"];
@@ -56,7 +55,6 @@ function Menueditor({
       translationObj.es,
       translationObj.it,
       price,
-      menuNumber,
       userID
     );
 
@@ -87,8 +85,7 @@ function Menueditor({
          checked></input> 
          
          <label for="scales">To be translated</label></div> */}
-          
-          
+
           {className === "ItemName" ? (
             <div>
               <label htmlFor="menuprice" className="menufieldheader"></label>
