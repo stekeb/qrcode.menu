@@ -23,9 +23,9 @@ This project was created with ReactJS, Express, Sequelize and PostgreSQL.
 
 ## TODO
 
--Complete CSS overhaul
--Add possibility to deactivate automatic translation for individual entries
--Authentication and general data security improvements
+-Complete CSS overhaul  
+-Add possibility to deactivate automatic translation for individual entries  
+-Authentication and general data security improvements  
 
 ## Contact
 
