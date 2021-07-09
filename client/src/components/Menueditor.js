@@ -17,9 +17,7 @@ function Menueditor({
   const userID = userId;
 
   const languageArr = ["DE", "FR", "ES", "IT"];
-  const translationObj = {}; // this object will be filled by the for loop in the submit handler. after it is done, the translations in the object will be send to the DB, together with the user input from the form
-
-  //this sorts the array according to a sortNo, which is automatically generated in the backend and ajusted, when entries are moved up and down in the list. the sorting is from small to high.
+  const translationObj = {};
 
   let menuItemsList;
 
@@ -44,7 +42,7 @@ function Menueditor({
     for (let i = 0; i < languageArr.length; i++) {
       const translation = await getTranslation(en, languageArr[i]);
       let languageKey = languageArr[i].toLowerCase(); // this is necessary, as the API needs the languages in capital letters (like in the array), but the DB fields are in lower letters.
-      translationObj[languageKey] = translation.translations[0].text; //adds a key value pair to the translationObj with which the createItemHandler is then called.
+      translationObj[languageKey] = translation.translations[0].text;
     }
     await createItemHandler(
       toBeTranslated,
@@ -81,11 +79,6 @@ function Menueditor({
             type="text"
             placeholder="Item Name"
           />
-          {/* <div><input type="checkbox" id="scales" name="scales"
-         checked></input> 
-         
-         <label for="scales">To be translated</label></div> */}
-
           {className === "ItemName" ? (
             <div>
               <label htmlFor="menuprice" className="menufieldheader"></label>
