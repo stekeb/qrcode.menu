@@ -6,7 +6,7 @@ With qrcode.menu you can easily create a restaurant menu which will be automatic
 
 Additionally, the qrcode editor allows you customize the colors and elements of a qrcode which is linked to your multi-lingual menu. Upon scanning the qrcode, the user will be redirected to your menu where he can choose between the different languages.
 
-qrcode.menu allows you to quickly translate your menu into the 5 most common european languages and to make it easily accessible to your customers. As your menu is displayed on the users phone, there is no need for printing the menu or reprinting it, if you want to change it.
+qrcode.menu allows you to quickly translate your menu into the 5 most common European languages and to make it easily accessible to your customers. As your menu is displayed on the user's phone, there is no need for printing the menu or reprinting it, if you want to change it.
 
 ## Instructions
 
