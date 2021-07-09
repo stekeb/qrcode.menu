@@ -37,7 +37,6 @@ function App() {
     setIsAuthenticated(true);
   }
 
-  // is handed down to Menueditor.js to create an entry and store it in the database. before sending the data from the form to the DB a for loop sends the entry to the DeepL API and stores the return values in an object, with which the non-english parameters are filled
   async function createItemHandler(
     toBeTranslated,
     className,
@@ -62,18 +61,18 @@ function App() {
     );
     setMenuData((prevState) => [...prevState, newItem]);
   }
-  // is handed down to Menulist.js to provide functionnlity to the delete button
+
   async function deleteHandler(id) {
     const itemToBeDeleted = await deleteItem(id);
     const newMenuData = menuData.filter((item) => item.id != itemToBeDeleted);
     setMenuData(newMenuData);
   }
-  // is handed down to Menulist.js, so entries in the menu can be moved up
+
   async function moveUpHandler(id) {
     const newUserData = await moveItemUp(id);
     setMenuData(newUserData.Menuitems);
   }
-  // is handed down to Menulist.js, so entries in the menu can be moved down
+
   async function moveDownHandler(id) {
     const newUserData = await moveItemDown(id);
     setMenuData(newUserData.Menuitems);
