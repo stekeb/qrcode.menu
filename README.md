@@ -2,7 +2,7 @@
 
 ## Summary
 
-With qrcode.menu you can easily create a restaurant menu which will be automatically translated from English to German, Spanish, Italian and French. You are able to assign different attributes to individual entries and therefore create e.g. headlines, descriptions, categories with different stylings. Menu entries can be deleted and rearranged which gives you the possibility to change your menu any time in the future.
+With qrcode.menu you can very easily create a restaurant menu which will be automatically translated from English to German, Spanish, Italian and French. You are able to assign different attributes to individual entries and therefore create e.g. headlines, descriptions, categories with different stylings. Menu entries can be deleted and rearranged which gives you the possibility to change your menu any time in the future.
 
 Additionally, the qrcode editor allows you customize the colors and elements of a qrcode which is linked to your multi-lingual menu. Upon scanning the qrcode, the user will be redirected to your menu where he can choose between the different languages.
 
